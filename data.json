@@ -1,42 +1,14 @@
 {
     "toan": [
         "Toán",
-        "toan_12"
+        "toan"
     ],
-    "ly": [
-        "Vật lý",
-        "ly_12"
+    "ca1": [
+        "Môn tự chọn 1",
+        "ca1"
     ],
-    "hoa": [
-        "Hóa học",
-        "hoa_12"
-    ],
-    "sinh": [
-        "Sinh học",
-        "sinh_12"
-    ],
-    "su": [
-        "Lịch sử",
-        "su_12"
-    ],
-    "dia": [
-        "Địa lý",
-        "dia_12"
-    ],
-    "tin": [
-        "Tin học",
-        "tin_12"
-    ],
-    "tienganh": [
-        "Tiếng Anh",
-        "ta_12"
-    ],
-    "ktpl": [
-        "Kinh tế pháp luật",
-        "ktpl_12"
-    ],
-	"congnghe":[
-		"Công nghệ",
-		"cn_12"
-	]
+    "ca2": [
+        "Môn tự chọn 2",
+        "ca2"
+    ]
 }
