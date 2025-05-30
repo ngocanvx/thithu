@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang web tra cứu bài làm của học sinh">
+    <title>Khối 12 - Tra cứu bài làm cuối kỳ 2</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <p class="highlight-blue">Trường THPT Vĩnh Xuân</p>
+        <h4>Tra cứu bài kiểm tra <span class="highlight-red">Khối 12</span> cuối kỳ 2 năm học 2024 - 2025</h4>
+        <select id="subject"></select>
+        <input type="text" id="studentId" placeholder="Nhập số báo danh">
+        <button onclick="searchImage()">Tra cứu</button>
+        <div id="result"></div>
+    </div>
+
+    <!-- Modal để hiển thị ảnh -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="" alt="Bài làm của học sinh">
+        </div>
+    </div>
+
+    <script>
+        let data = {};
+
+        fetch('data.json')
+            .then(response => response.json())
+            .then(json => {
+                data = json;
+                const subjectSelect = document.getElementById('subject');
+                for (const subject in data) {
+                    const option = document.createElement('option');
+                    option.value = subject;
+                    option.textContent = data[subject][0]; // Hiển thị tên môn học
+                    subjectSelect.appendChild(option);
+                }
+            })
+            .catch(error => console.error('Lỗi khi tải file JSON:', error));
+
+        function searchImage() {
+            const subject = document.getElementById('subject').value;
+            const studentId = document.getElementById('studentId').value.trim();
+            const resultDiv = document.getElementById('result');
+
+            if (!data[subject]) {
+                resultDiv.innerHTML = "<p>Không tìm thấy bài làm của học sinh.</p>";
+                return;
+            }
+
+            const folder = data[subject][1]; // Đường dẫn thư mục
+            const imagePath = `img/${folder}/${studentId}.jpg`;
+
+            // Hiển thị ảnh trong modal
+            const modal = document.getElementById('myModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imagePath;
+
+            const img = new Image();
+            img.onload = function () {
+                modal.style.display = "flex"; // Hiển thị modal khi ảnh có sẵn
+            };
+            img.onerror = function () {
+                resultDiv.innerHTML = "<p>Không tìm thấy bài làm của học sinh.</p>";
+            };
+            img.src = imagePath;
+        }
+
+        // Hàm đóng modal
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = "none"; // Ẩn modal
+        }
+    </script>
+</body>
+
+</html>
