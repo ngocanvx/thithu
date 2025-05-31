@@ -3,12 +3,40 @@
         "Toán",
         "toan"
     ],
-    "ca1": [
-        "Môn tự chọn 1",
-        "ca1"
+    "ly": [
+        "Vật lý",
+        "ly"
     ],
-    "ca2": [
-        "Môn tự chọn 2",
-        "ca2"
+    "hoa": [
+        "Hóa học",
+        "hoa"
+    ],
+    "sinh": [
+        "Sinh học",
+        "sinh"
+    ],
+    "ta": [
+        "Tiếng Anh",
+        "ta"
+    ],
+    "cncn": [
+        "Công nghệ công nghiệp",
+        "cncn"
+    ],
+    "cnnn": [
+        "Công nghệ nông nghiệp",
+        "cnnn"
+    ],
+    "su": [
+        "Lịch sử",
+        "su"
+    ],
+    "dia": [
+        "Địa lý",
+        "dia"
+    ],
+    "ktpl": [
+        "GD KT và PL",
+        "ktpl"
     ]
 }
